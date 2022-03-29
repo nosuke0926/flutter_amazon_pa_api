@@ -6,13 +6,12 @@ part of 'get_items_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetItemsResponse _$GetItemsResponseFromJson(Map<String, dynamic> json) {
-  return GetItemsResponse(
-    json['ItemsResult'] == null
-        ? null
-        : ItemsResult.fromJson(json['ItemsResult'] as Map<String, dynamic>),
-  );
-}
+GetItemsResponse _$GetItemsResponseFromJson(Map<String, dynamic> json) =>
+    GetItemsResponse(
+      json['ItemsResult'] == null
+          ? null
+          : ItemsResult.fromJson(json['ItemsResult'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$GetItemsResponseToJson(GetItemsResponse instance) =>
     <String, dynamic>{

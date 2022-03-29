@@ -4,30 +4,29 @@ part 'item_info.g.dart';
 
 @JsonSerializable()
 class ItemInfo {
-
   @JsonKey(name: 'ByLineInfo')
-  ByLineInfo byLineInfo;
-  
+  ByLineInfo? byLineInfo;
+
   @JsonKey(name: 'Title')
-  Title title;
+  Title? title;
 
   ItemInfo(this.byLineInfo, this.title);
 
-  factory ItemInfo.fromJson(Map<String, dynamic> json) => _$ItemInfoFromJson(json);
+  factory ItemInfo.fromJson(Map<String, dynamic> json) =>
+      _$ItemInfoFromJson(json);
   Map<String, dynamic> toJson() => _$ItemInfoToJson(this);
 }
 
 @JsonSerializable()
 class Title {
-
   @JsonKey(name: 'DisplayValue')
-  String displayValue;
+  String? displayValue;
 
   @JsonKey(name: 'Label')
-  String label;
+  String? label;
 
   @JsonKey(name: 'Locale')
-  String locale;
+  String? locale;
 
   Title(this.displayValue, this.label, this.locale);
 
@@ -37,54 +36,54 @@ class Title {
 
 @JsonSerializable()
 class ByLineInfo {
-
   @JsonKey(name: 'Contributors')
-  List<Contributor> contributors;
+  List<Contributor>? contributors;
 
   @JsonKey(name: 'Manufacturer')
-  Manufacturer manufacturer;
+  Manufacturer? manufacturer;
 
   ByLineInfo(this.contributors, this.manufacturer);
 
-  factory ByLineInfo.fromJson(Map<String, dynamic> json) => _$ByLineInfoFromJson(json);
+  factory ByLineInfo.fromJson(Map<String, dynamic> json) =>
+      _$ByLineInfoFromJson(json);
   Map<String, dynamic> toJson() => _$ByLineInfoToJson(this);
 }
 
 @JsonSerializable()
 class Contributor {
-  
   @JsonKey(name: 'Locale')
-  String locale;
+  String? locale;
 
   @JsonKey(name: 'Name')
-  String name;
+  String? name;
 
   @JsonKey(name: 'Role')
-  String role;
+  String? role;
 
   @JsonKey(name: 'RoleType')
-  String roleType;
+  String? roleType;
 
   Contributor(this.locale, this.name, this.role, this.roleType);
 
-  factory Contributor.fromJson(Map<String, dynamic> json) => _$ContributorFromJson(json);
+  factory Contributor.fromJson(Map<String, dynamic> json) =>
+      _$ContributorFromJson(json);
   Map<String, dynamic> toJson() => _$ContributorToJson(this);
 }
 
 @JsonSerializable()
 class Manufacturer {
-
   @JsonKey(name: 'DisplayValue')
-  String displayValue;
+  String? displayValue;
 
   @JsonKey(name: 'Label')
-  String label;
+  String? label;
 
   @JsonKey(name: 'Locale')
-  String locale;
+  String? locale;
 
   Manufacturer(this.displayValue, this.label, this.locale);
 
-  factory Manufacturer.fromJson(Map<String, dynamic> json) => _$ManufacturerFromJson(json);
+  factory Manufacturer.fromJson(Map<String, dynamic> json) =>
+      _$ManufacturerFromJson(json);
   Map<String, dynamic> toJson() => _$ManufacturerToJson(this);
 }

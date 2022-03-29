@@ -6,35 +6,31 @@ part of 'images.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Images _$ImagesFromJson(Map<String, dynamic> json) {
-  return Images(
-    json['Primary'] == null
-        ? null
-        : Primary.fromJson(json['Primary'] as Map<String, dynamic>),
-    json['Variants'] == null
-        ? null
-        : Variants.fromJson(json['Variants'] as Map<String, dynamic>),
-  );
-}
+Images _$ImagesFromJson(Map<String, dynamic> json) => Images(
+      json['Primary'] == null
+          ? null
+          : Primary.fromJson(json['Primary'] as Map<String, dynamic>),
+      json['Variants'] == null
+          ? null
+          : Variants.fromJson(json['Variants'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$ImagesToJson(Images instance) => <String, dynamic>{
       'Primary': instance.primary,
       'Variants': instance.variants,
     };
 
-Primary _$PrimaryFromJson(Map<String, dynamic> json) {
-  return Primary(
-    json['Small'] == null
-        ? null
-        : Small.fromJson(json['Small'] as Map<String, dynamic>),
-    json['Medium'] == null
-        ? null
-        : Medium.fromJson(json['Medium'] as Map<String, dynamic>),
-    json['Large'] == null
-        ? null
-        : Large.fromJson(json['Large'] as Map<String, dynamic>),
-  );
-}
+Primary _$PrimaryFromJson(Map<String, dynamic> json) => Primary(
+      json['Small'] == null
+          ? null
+          : Small.fromJson(json['Small'] as Map<String, dynamic>),
+      json['Medium'] == null
+          ? null
+          : Medium.fromJson(json['Medium'] as Map<String, dynamic>),
+      json['Large'] == null
+          ? null
+          : Large.fromJson(json['Large'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$PrimaryToJson(Primary instance) => <String, dynamic>{
       'Small': instance.small,
@@ -42,19 +38,17 @@ Map<String, dynamic> _$PrimaryToJson(Primary instance) => <String, dynamic>{
       'Large': instance.large,
     };
 
-Variants _$VariantsFromJson(Map<String, dynamic> json) {
-  return Variants(
-    json['Small'] == null
-        ? null
-        : Small.fromJson(json['Small'] as Map<String, dynamic>),
-    json['Medium'] == null
-        ? null
-        : Medium.fromJson(json['Medium'] as Map<String, dynamic>),
-    json['Large'] == null
-        ? null
-        : Large.fromJson(json['Large'] as Map<String, dynamic>),
-  );
-}
+Variants _$VariantsFromJson(Map<String, dynamic> json) => Variants(
+      json['Small'] == null
+          ? null
+          : Small.fromJson(json['Small'] as Map<String, dynamic>),
+      json['Medium'] == null
+          ? null
+          : Medium.fromJson(json['Medium'] as Map<String, dynamic>),
+      json['Large'] == null
+          ? null
+          : Large.fromJson(json['Large'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$VariantsToJson(Variants instance) => <String, dynamic>{
       'Small': instance.small,
@@ -62,13 +56,11 @@ Map<String, dynamic> _$VariantsToJson(Variants instance) => <String, dynamic>{
       'Large': instance.large,
     };
 
-Small _$SmallFromJson(Map<String, dynamic> json) {
-  return Small(
-    json['URL'] as String,
-    json['Height'] as int,
-    json['Width'] as int,
-  );
-}
+Small _$SmallFromJson(Map<String, dynamic> json) => Small(
+      json['URL'] as String?,
+      json['Height'] as int?,
+      json['Width'] as int?,
+    );
 
 Map<String, dynamic> _$SmallToJson(Small instance) => <String, dynamic>{
       'URL': instance.url,
@@ -76,13 +68,11 @@ Map<String, dynamic> _$SmallToJson(Small instance) => <String, dynamic>{
       'Width': instance.width,
     };
 
-Medium _$MediumFromJson(Map<String, dynamic> json) {
-  return Medium(
-    json['URL'] as String,
-    json['Height'] as int,
-    json['Width'] as int,
-  );
-}
+Medium _$MediumFromJson(Map<String, dynamic> json) => Medium(
+      json['URL'] as String?,
+      json['Height'] as int?,
+      json['Width'] as int?,
+    );
 
 Map<String, dynamic> _$MediumToJson(Medium instance) => <String, dynamic>{
       'URL': instance.url,
@@ -90,13 +80,11 @@ Map<String, dynamic> _$MediumToJson(Medium instance) => <String, dynamic>{
       'Width': instance.width,
     };
 
-Large _$LargeFromJson(Map<String, dynamic> json) {
-  return Large(
-    json['URL'] as String,
-    json['Height'] as int,
-    json['Width'] as int,
-  );
-}
+Large _$LargeFromJson(Map<String, dynamic> json) => Large(
+      json['URL'] as String?,
+      json['Height'] as int?,
+      json['Width'] as int?,
+    );
 
 Map<String, dynamic> _$LargeToJson(Large instance) => <String, dynamic>{
       'URL': instance.url,

@@ -11,3 +11,5 @@ pubspec.lock
 
 build/
 .flutter-plugins
+
+.*env

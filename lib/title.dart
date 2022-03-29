@@ -4,15 +4,14 @@ part 'title.g.dart';
 
 @JsonSerializable()
 class Title {
-
   @JsonKey(name: 'DisplayValue')
-  String displayValue;
+  String? displayValue;
 
   @JsonKey(name: 'Label')
-  String label;
+  String? label;
 
   @JsonKey(name: 'Locale')
-  String locale;
+  String? locale;
 
   Title(this.displayValue, this.label, this.locale);
 

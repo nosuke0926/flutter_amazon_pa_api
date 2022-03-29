@@ -29,12 +29,12 @@ class PaAPI {
   String marketplace = 'www.amazon.co.jp';
 
   /// API Request PATH
-  String path;
+  late String path;
 
   /// Amazon associate tag
-  String partnerTag;
+  late String partnerTag;
 
-  PaAPI(this.accessKey, this.secretKey);
+  PaAPI({required this.accessKey, required this.secretKey});
 
   Future<GetItemsResponse> getItems(List<String> items) async {
     final body = {
@@ -62,7 +62,7 @@ class PaAPI {
     var url = Uri.parse('https://$host$path');
     var response =
         await http.post(url, headers: headers, body: json.encode(body));
-    var responseBody =  utf8.decode(response.bodyBytes);
+    var responseBody = utf8.decode(response.bodyBytes);
     return jsonDecode(responseBody);
   }
 
@@ -99,9 +99,9 @@ class PaAPI {
         (headers.keys.toList()..sort()).map((s) => s.toLowerCase()).join(';');
 
     final canonicalHeaders = headers.keys
-        .map((key) => '${key.toLowerCase()}:${headers[key].trim()}')
+        .map((key) => '${key.toLowerCase()}:${headers[key]?.trim()}')
         .toList()
-          ..sort();
+      ..sort();
 
     var payloadHash =
         sha256.convert(utf8.encode(json.encode(payload))).toString();
