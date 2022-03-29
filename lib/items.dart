@@ -5,8 +5,8 @@ part 'items.g.dart';
 
 @JsonSerializable()
 class Items {
-  final List<Item> items;
-  
+  final List<Item>? items;
+
   Items(this.items);
 
   factory Items.fromJson(Map<String, dynamic> json) => _$ItemsFromJson(json);

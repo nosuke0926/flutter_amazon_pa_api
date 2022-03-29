@@ -7,16 +7,16 @@ part 'item.g.dart';
 @JsonSerializable()
 class Item {
   @JsonKey(name: 'ASIN')
-  String asin;
+  String? asin;
 
   @JsonKey(name: 'DetailPageURL')
-  String detailPageURL;
+  String? detailPageURL;
 
   @JsonKey(name: 'Images')
-  Images images;
+  Images? images;
 
   @JsonKey(name: 'ItemInfo')
-  ItemInfo itemInfo;
+  ItemInfo? itemInfo;
 
   Item(this.asin, this.detailPageURL, this.images, this.itemInfo);
 

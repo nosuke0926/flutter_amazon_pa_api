@@ -4,12 +4,11 @@ part 'images.g.dart';
 
 @JsonSerializable()
 class Images {
+  @JsonKey(name: 'Primary')
+  late Primary? primary;
 
-  @JsonKey(name: 'Primary', nullable: true)
-  Primary primary;
-
-  @JsonKey(name: 'Variants', nullable: true)
-  Variants variants;
+  @JsonKey(name: 'Variants')
+  late Variants? variants;
 
   Images(this.primary, this.variants);
 
@@ -20,47 +19,49 @@ class Images {
 @JsonSerializable()
 class Primary {
   @JsonKey(name: 'Small')
-  Small small;
+  Small? small;
 
   @JsonKey(name: 'Medium')
-  Medium medium;
+  Medium? medium;
 
   @JsonKey(name: 'Large')
-  Large large;
+  Large? large;
 
   Primary(this.small, this.medium, this.large);
 
-  factory Primary.fromJson(Map<String, dynamic> json) => _$PrimaryFromJson(json);
+  factory Primary.fromJson(Map<String, dynamic> json) =>
+      _$PrimaryFromJson(json);
   Map<String, dynamic> toJson() => _$PrimaryToJson(this);
 }
 
 @JsonSerializable()
 class Variants {
   @JsonKey(name: 'Small')
-  Small small;
+  Small? small;
 
   @JsonKey(name: 'Medium')
-  Medium medium;
+  Medium? medium;
 
   @JsonKey(name: 'Large')
-  Large large;
+  Large? large;
 
   Variants(this.small, this.medium, this.large);
 
-  factory Variants.fromJson(Map<String, dynamic> json) => _$VariantsFromJson(json);
+  factory Variants.fromJson(Map<String, dynamic> json) =>
+      _$VariantsFromJson(json);
   Map<String, dynamic> toJson() => _$VariantsToJson(this);
 }
 
 @JsonSerializable()
 class Small {
   @JsonKey(name: 'URL')
-  String url;
+  String? url;
 
   @JsonKey(name: 'Height')
-  int height;
+  int? height;
 
   @JsonKey(name: 'Width')
-  int width;
+  int? width;
 
   Small(this.url, this.height, this.width);
 
@@ -71,13 +72,13 @@ class Small {
 @JsonSerializable()
 class Medium {
   @JsonKey(name: 'URL')
-  String url;
+  String? url;
 
   @JsonKey(name: 'Height')
-  int height;
+  int? height;
 
   @JsonKey(name: 'Width')
-  int width;
+  int? width;
 
   Medium(this.url, this.height, this.width);
 
@@ -88,13 +89,13 @@ class Medium {
 @JsonSerializable()
 class Large {
   @JsonKey(name: 'URL')
-  String url;
+  String? url;
 
   @JsonKey(name: 'Height')
-  int height;
+  int? height;
 
   @JsonKey(name: 'Width')
-  int width;
+  int? width;
 
   Large(this.url, this.height, this.width);
 

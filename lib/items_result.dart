@@ -6,10 +6,11 @@ part 'items_result.g.dart';
 @JsonSerializable(explicitToJson: true)
 class ItemsResult {
   @JsonKey(name: 'Items')
-  List<Item> items;
+  List<Item>? items;
 
   ItemsResult(this.items);
 
-  factory ItemsResult.fromJson(Map<String, dynamic> json) => _$ItemsResultFromJson(json);
+  factory ItemsResult.fromJson(Map<String, dynamic> json) =>
+      _$ItemsResultFromJson(json);
   Map<String, dynamic> toJson() => _$ItemsResultToJson(this);
 }
