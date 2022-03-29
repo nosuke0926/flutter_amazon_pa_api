@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_amazon_pa_api/flutter_amazon_pa_api.dart';
@@ -9,9 +8,6 @@ import 'package:flutter_amazon_pa_api/item.dart';
 import 'package:flutter_amazon_pa_api/item_info.dart';
 
 Future<void> main() async {
-  TestWidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
-
   HttpOverrides.global = _MyHttpOverrides();
 
   test('constractor', () {
@@ -38,9 +34,9 @@ Future<void> main() async {
   });
 
   test('Test get items', () async {
-    final awsAccessKey = dotenv.env['AWS_ACCESS_KEY_ID'] ?? '';
-    final awsSecretKey = dotenv.env['AWS_SECRET_ACCESS_KEY'] ?? '';
-    final awsAssociateTag = dotenv.env['AWS_ASSOCIATE_TAG'] ?? '';
+    final awsAccessKey = Platform.environment['AWS_ACCESS_KEY_ID'] ?? '';
+    final awsSecretKey = Platform.environment['AWS_SECRET_ACCESS_KEY'] ?? '';
+    final awsAssociateTag = Platform.environment['AWS_ASSOCIATE_TAG'] ?? '';
     final paapi = PaAPI(accessKey: awsAccessKey, secretKey: awsSecretKey)
       ..partnerTag = awsAssociateTag;
 
@@ -55,9 +51,9 @@ Future<void> main() async {
   });
 
   test('get items for 4478111030', () async {
-    final awsAccessKey = dotenv.env['AWS_ACCESS_KEY_ID'] ?? '';
-    final awsSecretKey = dotenv.env['AWS_SECRET_ACCESS_KEY'] ?? '';
-    final awsAssociateTag = dotenv.env['AWS_ASSOCIATE_TAG'] ?? '';
+    final awsAccessKey = Platform.environment['AWS_ACCESS_KEY_ID'] ?? '';
+    final awsSecretKey = Platform.environment['AWS_SECRET_ACCESS_KEY'] ?? '';
+    final awsAssociateTag = Platform.environment['AWS_ASSOCIATE_TAG'] ?? '';
     final paapi = PaAPI(accessKey: awsAccessKey, secretKey: awsSecretKey)
       ..partnerTag = awsAssociateTag;
 
