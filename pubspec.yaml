@@ -4,19 +4,19 @@ version: 0.0.8
 homepage: https://github.com/meganii/flutter_amazon_pa_api
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  crypto: ^3.0.1
-  http: ^0.13.3
-  intl: ^0.17.0
-  json_annotation: ^4.4.0
+  crypto: ^3.0.3
+  http: ^1.1.0
+  intl: ^0.18.1
+  json_annotation: ^4.8.1
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  build_runner: ^2.0.0
-  json_serializable: ^6.0.0
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
   flutter_test:
     sdk: flutter
 

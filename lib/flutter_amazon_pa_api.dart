@@ -46,7 +46,8 @@ class PaAPI {
         "Images.Primary.Large",
         "ItemInfo.ByLineInfo",
         "ItemInfo.ContentInfo",
-        "ItemInfo.Title"
+        "ItemInfo.Title",
+        // "Offers.Listings.Price"
       ],
       "PartnerTag": this.partnerTag,
       "PartnerType": "Associates",

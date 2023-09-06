@@ -13,10 +13,13 @@ ItemInfo _$ItemInfoFromJson(Map<String, dynamic> json) => ItemInfo(
       json['Title'] == null
           ? null
           : Title.fromJson(json['Title'] as Map<String, dynamic>),
-    );
+    )..contentInfo = json['ContentInfo'] == null
+        ? null
+        : ContentInfo.fromJson(json['ContentInfo'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$ItemInfoToJson(ItemInfo instance) => <String, dynamic>{
       'ByLineInfo': instance.byLineInfo,
+      'ContentInfo': instance.contentInfo,
       'Title': instance.title,
     };
 
@@ -30,6 +33,43 @@ Map<String, dynamic> _$TitleToJson(Title instance) => <String, dynamic>{
       'DisplayValue': instance.displayValue,
       'Label': instance.label,
       'Locale': instance.locale,
+    };
+
+ContentInfo _$ContentInfoFromJson(Map<String, dynamic> json) => ContentInfo(
+      json['PagesCount'] == null
+          ? null
+          : PagesCount.fromJson(json['PagesCount'] as Map<String, dynamic>),
+      json['PublicationDate'] == null
+          ? null
+          : PublicationDate.fromJson(
+              json['PublicationDate'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ContentInfoToJson(ContentInfo instance) =>
+    <String, dynamic>{
+      'PagesCount': instance.pagesCount,
+      'PublicationDate': instance.publicationDate,
+    };
+
+PagesCount _$PagesCountFromJson(Map<String, dynamic> json) => PagesCount(
+      json['DisplayValue'] as int?,
+    );
+
+Map<String, dynamic> _$PagesCountToJson(PagesCount instance) =>
+    <String, dynamic>{
+      'DisplayValue': instance.displayValue,
+    };
+
+PublicationDate _$PublicationDateFromJson(Map<String, dynamic> json) =>
+    PublicationDate(
+      json['DisplayValue'] == null
+          ? null
+          : DateTime.parse(json['DisplayValue'] as String),
+    );
+
+Map<String, dynamic> _$PublicationDateToJson(PublicationDate instance) =>
+    <String, dynamic>{
+      'DisplayValue': instance.displayValue?.toIso8601String(),
     };
 
 ByLineInfo _$ByLineInfoFromJson(Map<String, dynamic> json) => ByLineInfo(

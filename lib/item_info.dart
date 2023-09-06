@@ -7,6 +7,9 @@ class ItemInfo {
   @JsonKey(name: 'ByLineInfo')
   ByLineInfo? byLineInfo;
 
+  @JsonKey(name: 'ContentInfo')
+  ContentInfo? contentInfo;
+
   @JsonKey(name: 'Title')
   Title? title;
 
@@ -33,6 +36,47 @@ class Title {
   factory Title.fromJson(Map<String, dynamic> json) => _$TitleFromJson(json);
   Map<String, dynamic> toJson() => _$TitleToJson(this);
 }
+
+@JsonSerializable()
+class ContentInfo {
+  @JsonKey(name: 'PagesCount')
+  PagesCount? pagesCount;
+
+  @JsonKey(name: 'PublicationDate')
+  PublicationDate? publicationDate;
+
+  ContentInfo(this.pagesCount, this.publicationDate);
+
+  factory ContentInfo.fromJson(Map<String, dynamic> json) =>
+      _$ContentInfoFromJson(json);
+  Map<String, dynamic> toJson() => _$ContentInfoToJson(this);
+}
+
+@JsonSerializable()
+class PagesCount {
+  @JsonKey(name: 'DisplayValue')
+  int? displayValue;
+
+  PagesCount(this.displayValue);
+
+  factory PagesCount.fromJson(Map<String, dynamic> json) =>
+      _$PagesCountFromJson(json);
+  Map<String, dynamic> toJson() => _$PagesCountToJson(this);
+}
+
+@JsonSerializable()
+class PublicationDate {
+  @JsonKey(name: 'DisplayValue')
+  DateTime? displayValue;
+
+  PublicationDate(this.displayValue);
+
+  factory PublicationDate.fromJson(Map<String, dynamic> json) =>
+      _$PublicationDateFromJson(json);
+  Map<String, dynamic> toJson() => _$PublicationDateToJson(this);
+}
+
+
 
 @JsonSerializable()
 class ByLineInfo {
