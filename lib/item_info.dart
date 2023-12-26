@@ -13,7 +13,10 @@ class ItemInfo {
   @JsonKey(name: 'Title')
   Title? title;
 
-  ItemInfo(this.byLineInfo, this.title);
+  @JsonKey(name: 'Features')
+  Features? features;
+
+  ItemInfo(this.byLineInfo, this.title, this.features);
 
   factory ItemInfo.fromJson(Map<String, dynamic> json) =>
       _$ItemInfoFromJson(json);
@@ -35,6 +38,24 @@ class Title {
 
   factory Title.fromJson(Map<String, dynamic> json) => _$TitleFromJson(json);
   Map<String, dynamic> toJson() => _$TitleToJson(this);
+}
+
+@JsonSerializable()
+class Features {
+  @JsonKey(name: 'DisplayValues')
+  List<String>? displayValues;
+
+  @JsonKey(name: 'Label')
+  String? label;
+
+  @JsonKey(name: 'Locale')
+  String? locale;
+
+  Features(this.displayValues, this.label, this.locale);
+
+  factory Features.fromJson(Map<String, dynamic> json) =>
+      _$FeaturesFromJson(json);
+  Map<String, dynamic> toJson() => _$FeaturesToJson(this);
 }
 
 @JsonSerializable()
@@ -75,8 +96,6 @@ class PublicationDate {
       _$PublicationDateFromJson(json);
   Map<String, dynamic> toJson() => _$PublicationDateToJson(this);
 }
-
-
 
 @JsonSerializable()
 class ByLineInfo {

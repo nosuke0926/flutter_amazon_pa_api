@@ -47,6 +47,7 @@ class PaAPI {
         "ItemInfo.ByLineInfo",
         "ItemInfo.ContentInfo",
         "ItemInfo.Title",
+        "ItemInfo.Features",
         // "Offers.Listings.Price"
       ],
       "PartnerTag": this.partnerTag,
@@ -85,13 +86,9 @@ class PaAPI {
     String stringToSign = _prepareStringToSign(canonicalURL, currentDateTime);
     String signature = _calculateSignature(stringToSign, currentDateTime);
 
-    if (signature != null) {
-      headers['Authorization'] =
-          _buildAuthorizationString(signedHeaders, signature, currentDateTime);
-      return headers;
-    } else {
-      return {};
-    }
+    headers['Authorization'] =
+        _buildAuthorizationString(signedHeaders, signature, currentDateTime);
+    return headers;
   }
 
   String _prepareCanonicalRequest(

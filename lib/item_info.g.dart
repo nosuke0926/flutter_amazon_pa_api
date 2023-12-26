@@ -13,6 +13,9 @@ ItemInfo _$ItemInfoFromJson(Map<String, dynamic> json) => ItemInfo(
       json['Title'] == null
           ? null
           : Title.fromJson(json['Title'] as Map<String, dynamic>),
+      json['Features'] == null
+          ? null
+          : Features.fromJson(json['Features'] as Map<String, dynamic>),
     )..contentInfo = json['ContentInfo'] == null
         ? null
         : ContentInfo.fromJson(json['ContentInfo'] as Map<String, dynamic>);
@@ -21,6 +24,7 @@ Map<String, dynamic> _$ItemInfoToJson(ItemInfo instance) => <String, dynamic>{
       'ByLineInfo': instance.byLineInfo,
       'ContentInfo': instance.contentInfo,
       'Title': instance.title,
+      'Features': instance.features,
     };
 
 Title _$TitleFromJson(Map<String, dynamic> json) => Title(
@@ -31,6 +35,20 @@ Title _$TitleFromJson(Map<String, dynamic> json) => Title(
 
 Map<String, dynamic> _$TitleToJson(Title instance) => <String, dynamic>{
       'DisplayValue': instance.displayValue,
+      'Label': instance.label,
+      'Locale': instance.locale,
+    };
+
+Features _$FeaturesFromJson(Map<String, dynamic> json) => Features(
+      (json['DisplayValues'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      json['Label'] as String?,
+      json['Locale'] as String?,
+    );
+
+Map<String, dynamic> _$FeaturesToJson(Features instance) => <String, dynamic>{
+      'DisplayValues': instance.displayValues,
       'Label': instance.label,
       'Locale': instance.locale,
     };
