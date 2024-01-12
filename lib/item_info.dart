@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'item_info.g.dart';
@@ -92,9 +93,28 @@ class PublicationDate {
 
   PublicationDate(this.displayValue);
 
-  factory PublicationDate.fromJson(Map<String, dynamic> json) =>
-      _$PublicationDateFromJson(json);
+  factory PublicationDate.fromJson(Map<String, dynamic> json) {
+    return PublicationDate(
+      _parseDateTime(json['DisplayValue']),
+    );
+  }
+
   Map<String, dynamic> toJson() => _$PublicationDateToJson(this);
+
+  static DateTime? _parseDateTime(dynamic value) {
+    if (value == null) {
+      return null;
+    }
+
+    try {
+      return DateTime.parse(value as String);
+    } on FormatException catch (e) {
+      debugPrint(e.toString());
+      // 無効な日付データの処理
+      // 例: nullを返す、デフォルトの日付を設定する、エラーログを出力する、など
+      return null;
+    }
+  }
 }
 
 @JsonSerializable()
